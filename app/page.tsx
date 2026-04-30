@@ -1,65 +1,88 @@
-import Image from "next/image";
+/**
+ * Iron Car Location – Home Page
+ *
+ * Section render order:
+ * 0. Navbar (fixed, always visible)
+ * 1. Hero
+ * 2. FeaturedFleet (interactive showcase)
+ * 3. CategorySection × 3 (Luxe, Sport, Économique)
+ * 4. HowItWorks
+ * 5. WhyIronCar
+ * 6. SocialProof
+ * 7. Services
+ * 8. FAQ
+ * 9. FinalCTA + footer
+ *
+ * Server Component — all animated children are "use client".
+ */
 
-export default function Home() {
+import Navbar from "./components/Navbar";
+import Hero from "./sections/Hero";
+import FeaturedFleet from "./sections/FeaturedFleet";
+import CategorySection from "./components/CategorySection";
+import HowItWorks from "./sections/HowItWorks";
+import WhyIronCar from "./sections/WhyIronCar";
+import SocialProof from "./sections/SocialProof";
+import Services from "./sections/Services";
+import FAQ from "./sections/FAQ";
+import FinalCTA from "./sections/FinalCTA";
+import { ALL_CARS } from "@/lib/fleet";
+
+/* Pull cars per category */
+const carsByCategory = (cat: string) =>
+  ALL_CARS.filter((c) => c.category === cat);
+
+export default function HomePage() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
+    <>
+      {/* Fixed navigation bar */}
+      <Navbar />
+
+      <main id="main-content">
+        {/* 1 – Full-screen hero with car image */}
+        <Hero />
+
+        {/* 2 – Car fleet interactive showcase */}
+        <FeaturedFleet />
+
+        {/* 3 – Category sections (alternating dark backgrounds) */}
+        <CategorySection
+          title="Voitures de Luxe"
+          category="Luxe"
+          cars={carsByCategory("Luxe")}
+          bg="darker"
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+        <CategorySection
+          title="Voitures Sport"
+          category="Sport"
+          cars={carsByCategory("Sport")}
+          bg="dark"
+        />
+        <CategorySection
+          title="Économique"
+          category="Économique"
+          cars={carsByCategory("Économique")}
+          bg="darker"
+        />
+
+        {/* 4 – How to book (4 steps) */}
+        <HowItWorks />
+
+        {/* 5 – Why Iron Car */}
+        <WhyIronCar />
+
+        {/* 6 – Customer reviews */}
+        <SocialProof />
+
+        {/* 7 – Services list */}
+        <Services />
+
+        {/* 8 – FAQ accordion */}
+        <FAQ />
+
+        {/* 9 – Final CTA + footer */}
+        <FinalCTA />
       </main>
-    </div>
+    </>
   );
 }

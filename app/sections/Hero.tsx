@@ -105,14 +105,14 @@ export default function Hero() {
           </motion.p>
 
           {/* CTA Buttons */}
-          <motion.div variants={fadeUp} className="flex flex-wrap gap-3 mb-10">
+          <motion.div variants={fadeUp} className="flex flex-col sm:flex-row flex-wrap gap-3 mb-10 w-full sm:w-auto">
             {/* WhatsApp — primary (green) */}
             <motion.a
               id="hero-whatsapp-btn"
               href={WA_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2.5 bg-[#25D366] text-white font-bold text-base px-7 py-4 rounded-xl shadow-[0_6px_24px_rgba(37,211,102,0.38)] transition-all duration-200"
+              className="inline-flex items-center justify-center gap-2.5 bg-[#25D366] text-white font-bold text-base w-full sm:w-auto px-7 py-4 rounded-xl shadow-[0_6px_24px_rgba(37,211,102,0.38)] transition-all duration-200"
               whileHover={{ scale: 1.04, y: -2, boxShadow: "0 10px 32px rgba(37,211,102,0.5)" }}
               whileTap={{ scale: 0.97 }}
             >
@@ -128,7 +128,7 @@ export default function Hero() {
                 e.preventDefault();
                 document.getElementById("fleet")?.scrollIntoView({ behavior: "smooth" });
               }}
-              className="inline-flex items-center gap-2.5 bg-[#E30613] hover:bg-[#C40410] text-white font-bold text-base px-7 py-4 rounded-xl transition-all duration-200 shadow-[0_4px_20px_rgba(227,6,19,0.4)]"
+              className="inline-flex items-center justify-center gap-2.5 bg-[#E30613] hover:bg-[#C40410] text-white font-bold text-base w-full sm:w-auto px-7 py-4 rounded-xl transition-all duration-200 shadow-[0_4px_20px_rgba(227,6,19,0.4)]"
               whileHover={{ scale: 1.04, y: -2 }}
               whileTap={{ scale: 0.97 }}
             >

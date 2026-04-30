@@ -202,6 +202,7 @@ function GridCard({
           fill
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
           className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
+          loading="lazy"
           onError={(e) => { (e.target as HTMLImageElement).src = "/images/hero-car.webp"; }}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#0D1422]/80 via-transparent to-transparent" />
@@ -244,7 +245,7 @@ function GridCard({
             href={waUrl(car)}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex-1 inline-flex items-center justify-center gap-1.5 bg-[#E30613] hover:bg-[#CC0511] text-white font-bold text-xs py-2.5 rounded-xl transition-colors"
+            className="flex-1 inline-flex items-center justify-center gap-1.5 bg-[#E30613] hover:bg-[#CC0511] text-white font-bold text-sm py-3.5 rounded-xl transition-colors"
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
           >
@@ -253,7 +254,7 @@ function GridCard({
           </motion.a>
           <motion.button
             onClick={() => onDetail(car)}
-            className="flex-1 border border-white/15 hover:border-[#E30613]/40 text-slate-400 hover:text-[#E30613] font-semibold text-xs py-2.5 rounded-xl transition-colors"
+            className="flex-1 border border-white/15 hover:border-[#E30613]/40 text-slate-400 hover:text-[#E30613] font-semibold text-sm py-3.5 rounded-xl transition-colors"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.97 }}
           >

@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import FloatingWhatsApp from "./components/FloatingWhatsApp";
+import MobileStickyBar from "./components/MobileStickyBar";
 import "./globals.css";
 
 /* ─── Fonts ─────────────────────────────────────────────────────────── */
@@ -100,6 +101,7 @@ export default function RootLayout({
 
         {/* Floating WhatsApp – visible on all pages */}
         <FloatingWhatsApp />
+        <MobileStickyBar />
 
         {/* Vercel Observability */}
         <Analytics />

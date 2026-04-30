@@ -206,7 +206,7 @@ export default function Navbar() {
                         handleHash(e, link.href);
                         setMenuOpen(false);
                       }}
-              className={`flex items-center gap-3 text-slate-200 hover:text-[#E30613] font-medium text-base py-3 px-2 rounded-lg hover:bg-white/5 transition-colors`}
+              className={`flex items-center gap-3 text-slate-200 hover:text-[#E30613] font-medium text-base py-4 px-3 rounded-lg hover:bg-white/5 transition-colors`}
                     >
                       <span className="text-[#E30613] text-xs">▸</span>
                       {link.label}
@@ -219,7 +219,7 @@ export default function Navbar() {
                   <Link
                     href="/collection"
                     onClick={() => setMenuOpen(false)}
-                    className={`flex items-center gap-3 font-medium text-base py-3 px-2 rounded-lg hover:bg-white/5 transition-colors ${
+                    className={`flex items-center gap-3 font-medium text-base py-4 px-3 rounded-lg hover:bg-white/5 transition-colors ${
                       isCollection ? "text-[#D4AF37]" : "text-slate-200 hover:text-[#D4AF37]"
                     }`}
                   >
@@ -236,7 +236,7 @@ export default function Navbar() {
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={() => setMenuOpen(false)}
-                    className="flex items-center justify-center gap-2 w-full bg-[#25D366] hover:bg-[#1EBE5A] text-white font-bold text-base py-3.5 rounded-xl transition-colors"
+                    className="flex items-center justify-center gap-2 w-full bg-[#25D366] hover:bg-[#1EBE5A] text-white font-bold text-base py-4 rounded-xl transition-colors"
                   >
                     <MessageCircle size={20} />
                     Réserver maintenant

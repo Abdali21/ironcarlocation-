@@ -29,7 +29,7 @@ export default function FloatingWhatsApp() {
     <AnimatePresence>
       {visible && (
         <motion.div
-          className="fixed bottom-5 right-4 sm:bottom-7 sm:right-7 z-[9999] flex flex-col items-end gap-3"
+          className="fixed bottom-24 right-4 sm:bottom-7 sm:right-7 z-[9999] flex flex-col items-end gap-3"
           initial={{ opacity: 0, scale: 0.5, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.5, y: 20 }}

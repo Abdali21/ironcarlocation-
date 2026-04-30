@@ -24,6 +24,7 @@ export default function CategoryClient({ cars }: { cars: CarEntry[] }) {
                                     alt={car.name}
                                     fill
                                     className="object-cover group-hover:scale-105 transition-transform duration-500"
+                                    loading="lazy"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-[#0D1422]/80 via-transparent to-transparent" />
                             </div>
@@ -56,7 +57,7 @@ export default function CategoryClient({ cars }: { cars: CarEntry[] }) {
                                     <a
                                         href={waUrl(car)}
                                         target="_blank"
-                                        className="flex-1 inline-flex items-center justify-center gap-2 bg-[#E30613] hover:bg-[#CC0511] text-white font-bold text-sm py-2.5 rounded-xl transition-colors"
+                                        className="flex-1 inline-flex items-center justify-center gap-2 bg-[#E30613] hover:bg-[#CC0511] text-white font-bold text-sm py-3.5 rounded-xl transition-colors"
                                     >
                                         <MessageCircle size={15} strokeWidth={2} />
                                         Réserver
@@ -64,7 +65,7 @@ export default function CategoryClient({ cars }: { cars: CarEntry[] }) {
 
                                     <button
                                         onClick={() => setSelectedCar(car)}
-                                        className="flex-1 border border-white/15 hover:border-[#E30613]/40 text-slate-400 hover:text-[#E30613] font-semibold text-sm py-2.5 rounded-xl transition-colors"
+                                        className="flex-1 border border-white/15 hover:border-[#E30613]/40 text-slate-400 hover:text-[#E30613] font-semibold text-sm py-3.5 rounded-xl transition-colors"
                                     >
                                         Voir détails
                                     </button>

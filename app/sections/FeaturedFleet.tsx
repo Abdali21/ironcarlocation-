@@ -141,10 +141,22 @@ export default function FeaturedFleet() {
               <motion.div
                 key={car.id}
                 initial={{ opacity: 0, scale: 0.92, filter: "blur(8px)" }}
-                animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+                animate={{ opacity: 1, scale: 1, filter: "blur(0px)", x: 0 }}
                 exit={{ opacity: 0, scale: 0.96, filter: "blur(4px)" }}
                 transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-                className="relative w-full max-w-[520px] aspect-[16/9]"
+                className="relative w-full max-w-[520px] aspect-[16/9] cursor-grab active:cursor-grabbing"
+                drag="x"
+                dragConstraints={{ left: 0, right: 0 }}
+                dragElastic={0.2}
+                onDragEnd={(e, { offset, velocity }) => {
+                  const swipe = offset.x;
+                  if (swipe < -50 || velocity.x < -500) {
+                    nextCar();
+                  } else if (swipe > 50 || velocity.x > 500) {
+                    const prev = (activeIdx - 1 + FLEET.length) % FLEET.length;
+                    goToCar(prev);
+                  }
+                }}
               >
                 <Image
                   src={car.image}

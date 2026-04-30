@@ -31,6 +31,7 @@ function CarCard({ car, index }: { car: CarEntry; index: number }) {
           fill
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
           className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
+          loading="lazy"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#0D1422]/80 via-transparent to-transparent" />
       </div>
@@ -60,7 +61,7 @@ function CarCard({ car, index }: { car: CarEntry; index: number }) {
           href={waUrl(car)}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center justify-center gap-2 bg-[#E30613] hover:bg-[#CC0511] text-white font-bold text-sm py-2.5 rounded-xl transition-colors shadow-[0_4px_14px_rgba(227,6,19,0.25)] mt-1"
+          className="inline-flex items-center justify-center gap-2 bg-[#E30613] hover:bg-[#CC0511] text-white font-bold text-sm py-3.5 rounded-xl transition-colors shadow-[0_4px_14px_rgba(227,6,19,0.25)] mt-1"
           whileHover={{ scale: 1.03 }}
           whileTap={{ scale: 0.97 }}
         >
